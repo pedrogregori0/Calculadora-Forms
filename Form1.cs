@@ -10,13 +10,10 @@ namespace CalculadoraPOO
             InitializeComponent();
         }
 
-        private void btnSomar_Click(object sender, EventArgs e)
+        private void Calcular(string op)
         {
             Controle controle = new Controle();
-            controle.num1 = txbPrimeiroNumero.Text;
-            controle.num2 = txbSegundoNumero.Text;
-            controle.Executar();
-
+            controle.Executar(txbPrimeiroNumero.Text, txbSegundoNumero.Text, op);
             if (controle.mensagem.Equals(""))
             {
                 lblResultado.Text = controle.resultado;
@@ -25,22 +22,25 @@ namespace CalculadoraPOO
             {
                 lblResultado.Text = controle.mensagem;
             }
-
+        }
+        private void btnSomar_Click(object sender, EventArgs e)
+        {
+            Calcular("+");
         }
 
         private void btnSubtrair_Click(object sender, EventArgs e)
         {
-
+            Calcular("-");
         }
 
         private void btnMultiplicar_Click(object sender, EventArgs e)
         {
-
+            Calcular("*");
         }
 
         private void btnDividir_Click(object sender, EventArgs e)
         {
-
+            Calcular("/");
         }
     }
 }

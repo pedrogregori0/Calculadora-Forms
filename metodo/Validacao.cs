@@ -8,20 +8,21 @@ namespace CalculadoraPOO.metodo
 {
     public class Validacao
     {
-        public string num1;
-        public string num2;
         public int n1;
         public int n2;
         public string mensagem;
 
-        public void Validar()
+        public void Validar(string num1, string num2, string op)
         {
             mensagem = "";
-
             try
             {
                 n1 = Convert.ToInt32(num1);
                 n2 = Convert.ToInt32(num2);
+                if(op.Equals("/") && n2.Equals("0"))
+                {
+                    mensagem = "Divisao por zero";
+                }
             }
 
             catch (Exception erro)
